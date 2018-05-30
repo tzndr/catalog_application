@@ -8,17 +8,17 @@
   <body>
     {% block content %}
       {% include "header.html" %}
-    {%endblock%}
+    {% endblock %}
 
-    {%with messages = get_flashed_messages()%}
-      {%if messages%}
-        {%for message in messages%}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
           <div class="flash flash-box-shadow">
             {{message}}
           </div>
-        {%endfor%}
-      {%endif%}
-    {%endwith%}
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
 
     {%if products|length == 0%}
     <div class="product-container box-shadow">
@@ -32,7 +32,7 @@
         <p class="no-products-warning flash-box-shadow">You don't have any products
           in this category. Please add a product.</p>
       </div>
-    {%else%}
+    {% else %}
       <div class="product-container box-shadow">
         <div class="product-heading">
           <p class="product-title">{{category.name}}</p>
@@ -41,7 +41,7 @@
           <a class="new-product-confirm-btn" href="{{url_for('newProduct',
             category_id=category.id)}}">Add New Product</a>
         </div>
-        {%for product in products%}
+        {% for product in products %}
           <div class="product-items">
             <a href="{{url_for('detailProduct', item_id=product.id,
               category_id=category.id)}}">
@@ -53,8 +53,8 @@
             <a class="product-delete-btn" href="{{url_for('deleteProduct',
                 category_id=category.id, item_id=product.id)}}">Delete</a>
           </div>
-        {%endfor%}
+        {% endfor %}
       </div>
-    {%endif%}
+    {% endif %}
   </body>
 </html>

@@ -8,17 +8,17 @@
   <body>
     {% block content %}
       {% include "header.html" %}
-    {%endblock%}
+    {% endblock %}
 
-    {%with messages = get_flashed_messages()%}
-      {%if messages%}
-        {%for message in messages%}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
           <div class="flash flash-box-shadow">
             {{message}}
           </div>
-        {%endfor%}
-      {%endif%}
-    {%endwith%}
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
 
     <div class="main-category-container box-shadow">
       <div class="main-heading">
@@ -26,16 +26,16 @@
           <a class="new-category-confirm-btn" href="{{url_for('newCategory')}}"
             >Add New Category</a>
       </div>
-      {%for category in categories%}
+      {% for category in categories %}
         <div class="main-items">
           <a href="{{url_for('showProducts', category_id=category.id)}}">
             <p class="main-text">{{category.name}}</p></a>
         </div>
-      {%endfor%}
+      {% endfor %}
     </div>
       <div class="recent-container box-shadow">
         <p class="recent-title">Recently Added Products</p>
-        {%for product in recent_products%}
+        {% for product in recent_products %}
           <div class="product-items">
             <a href="{{url_for('detailProduct', category_id=product.category.id,
               item_id=product.id)}}">
@@ -44,7 +44,7 @@
               <p class="product-price-text">{{product.price}}<p>
             </a>
           </div>
-        {%endfor%}
+        {% endfor %}
       </div>
     </div>
   </body>

@@ -8,7 +8,7 @@
   <body>
     {% block content %}
       {% include "header.html" %}
-    {%endblock%}
+    {% endblock %}
 
     {%if products|length == 0%}
     <div class="product-container box-shadow">
@@ -23,7 +23,7 @@
         <div class="product-heading">
           <p class="product-title">{{category.name}}</p>
         </div>
-        {%for product in products%}
+        {% for product in products %}
           <div class="product-items">
             <a href="{{url_for('detailProduct', item_id=product.id,
               category_id=category.id)}}">
@@ -31,8 +31,8 @@
             <img class="product-img" src="{{product.image}}">
             <p class="product-price-text">{{product.price}}<p></a>
           </div>
-        {%endfor%}
+        {% endfor %}
       </div>
-    {%endif%}
+    {% endif %}
   </body>
 </html>

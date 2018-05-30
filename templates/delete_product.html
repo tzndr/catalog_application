@@ -8,7 +8,7 @@
   <body>
     {% block content %}
       {% include "header.html" %}
-    {%endblock%}
+    {% endblock %}
     <div class="new-product-container box-shadow">
       <h1 class="main-title">Delete {{product.name}}?</h1>
       <form action="{{url_for('deleteProduct', category_id=category_id,

@@ -7,8 +7,8 @@
   </head>
   <body>
     {% block content %}
-    {% include "header.html" %}
-
+      {% include "header.html" %}
+    {% endblock %}
     <div class="new-category-container box-shadow">
       <h1 class="main-title">Create New Category?</h1>
       <form action="{{url_for('newCategory')}}" method="POST">
@@ -20,6 +20,5 @@
         <a class="standard-btn" href="{{url_for('showCategories')}}">Cancel</a>
       </form>
     </div>
-    {%endblock%}
   </body>
 </html>
